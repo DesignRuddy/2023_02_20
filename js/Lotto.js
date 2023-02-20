@@ -1,0 +1,1 @@
+var FirstNum= 1~45 ;

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test.html</title>
+    
+<script>
+//자바스크립트 -----------------------------------
+    function Final(){
+        let data='', info='', msg='';
+
+        // let alcoholFee = alcohol.options[alcohol.selectedIndex].value;
+        let alcohol = document.myform.container.select_side.value;
+        let cnt1 = document.myform.getElementById('cnt1').value;
+        let Menu = document.myform.getElementById('select_menu').value;
+        let cnt2 = document.myform.getElementById('cnt2').value;
+
+
+        let Galcohol=0, Price1=0, Gmenu=0, Price2=0;
+
+  
+        if(alcohol=='소주'){pirce1=3000;}
+        else if(alcohol=='콜라'){pirce1=2000;}
+        else if(alcohol=='맥주'){pirce1=5000;}
+        else { }
+        
+        if(Menu=='제육볶음'){pirce1=8000;}
+        else if(alcohol=='두부김치'){pirce1=10000;}
+        else if(alcohol=='골뱅이무침'){pirce1=7000;}
+        else if(alcohol=='김치파전'){pirce1=5000;}
+        else { }
+        
+        data = '음료:'+ alcohol+ '주문수량:'+cnt1+'\t\t합계:'+'원\n';
+        data += '메뉴:'+ Menu+ '주문수량:'+cnt2+'\t\t합계:'+'원\n';
+        data += '총합계:'+'dnjs';
+
+        document.myform.result.value= data ;
+        
+
+
+
+
+
+        document.getElementById('order').innerHTML=data;
+        
+        // document.getElementById('result_window').innerHTML=result
+    }
+</script>
+  
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h1>[투다리 메뉴표]</h1>
+    <form name="myform"></form>
+    <div class="container">
+        <div class="side_menu">
+            <label for="">술종류</label>
+                <p></p>
+                <select name="select_side" id="select_side">
+                    <option value="소주">소주(3000원)</option>
+                    <option value="맥주">맥주(5000원)</option>
+                    <option value="콜라">콜라(2000원)</option>
+                </select>
+          
+        </div>
+
+        <div id="quantity">
+            <label for="">수량
+                <p></p>
+                <input type="number" name="quantity" id="cnt1">
+            </label>
+        </div>
+        
+        <div class="main_menu">
+            <label for="">안주종류 </label>
+                <p></p>
+                <select name="select_menu" id="select_menu">
+                    <option value="제육볶음">제육볶음(8000원)</option>
+                    <option value="두부김치">두부김치(10000원)</option>
+                    <option value="골뱅이무침">골뱅이무침(7000원)</option>
+                    <option value="김치파전">김치파전(5000원)</option>
+                </select>
+        </div>
+
+        <div id="quantity">
+            <label for="">수량 </label>
+                <p></p>
+                <input type="number" name="quantity" id="cnt2">
+        </div>
+    </div>
+
+    <p></p>
+
+    <div>
+        <button class="btn_result" onclick='Final()'>주 문 확 인</button>
+    </div>
+    
+    <p></p>
+
+
+    <div id="result_window">
+        <textarea name="주문확인표" id="order" cols="86" rows="20" placeholder="주문을 확인해주세요"></textarea>
+    </div>
+</body>
+<!-- 소주(3000원) 맥주(2000원) 콜라(5000원)    ------  -->
+<!-- 제육볶음(8000원) 두부김치(10000원) 골뱅무침(7000원) 김치파전(5000원)    ------  -->
+<style>
+    /*css주석 기입  */
+    div {
+        display: inline-block;
+        border: 1px ;
+        border-style: none;
+    }
+    h1{
+        margin-left: 35px;
+        padding-top: 15px;
+    }
+    label{
+        font-weight: bold;
+        font-size: 14pt;
+    }
+    div .btn_result{
+        font-weight: bold;
+        width: 150px;
+        height: 50px;
+        font-size: 16pt;
+    }
+    ::placeholder{
+        font-size: 25pt;
+    }
+    body{
+        margin-bottom: 50px;
+    }
+</style>
+</html>

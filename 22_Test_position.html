@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 22_Test_position.html </title>
+    
+    <script>
+    //자바스크립트 -----------------------------------
+    </script>
+  
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h2> 22_Test_position.html </h2>
+
+    <div class="myrelative">
+        <img src="./Images/aaa.gif" alt="">
+        <div class="myabsolute">
+            <img src="./Images/aaa.gif" alt="">
+        </div>
+
+    </div>
+        <p>
+            따뜻한 햇살에 눈이 부실만큼 예뻤다
+            차가워 보이기도..가끔은 포근하기도..
+            카페를가도 음식점을가도 달달한 꽃내음이 난다.
+        </p>
+
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            when an unknown printer took a galley of type and scrambled
+            it to make a type specimen book. It has survived not only five centuries,
+            but also the leap into electronic typesetting, remaining essentially unchanged.
+        </p>
+</body>
+<!-- 주석 '끝' 입니다.    ------  -->
+<style>
+    /*css주석 기입  */
+    *{
+        font-size: 14pt;
+    }
+    div.myabsolute{    
+        position: absolute; /*예시)>피자):sale,또는 sold out 등 이미지를 겹치거나? 이미지안의 이미지를 넣고싶을떄 relatv안에 absol을 넣어주어서 사진을 겹치게 할수 있음*/
+        right: 30px;
+        width: 220px; height: 180px;
+        border: 5px dashed red;
+        padding-left: 50px;
+        padding-top: 20px;
+        top: -10px;
+    }
+    div.myrelative{
+        position: relative;
+        width: 500px; height: 200px;
+        border: 5px solid black;
+    }
+</style>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test.html</title>
+
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h1>[투다리 메뉴표]</h1>
+    <form name="myform"></form>
+    <div class="container">
+        <div class="side_menu">
+            <label>술종류</label>
+                <p></p>
+                <select name="select_side" id="alcohol">
+                    <option value="3000">소주</option>
+                    <option value="5000">맥주</option>
+                    <option value="2000">콜라</option>
+                </select>
+          
+        </div>
+
+        <div id="alcoholCnt">
+            <label>수량
+                <input type="number" name="quantity" id="cnt1">
+            </label>
+        </div>
+        
+        <div class="main_menu">
+            <label>안주종류 </label>
+                <p></p>
+                <select name="select_menu" id="food">
+                    <option value="8000">제육볶음</option>
+                    <option value="10000">두부김치</option>
+                    <option value="7000">골뱅이무침</option>
+                    <option value="5000">김치파전</option>
+                </select>
+        </div>
+
+        <div id="foodCnt">
+            <label>수량 </label>
+                <input type="number" name="quantity" id="cnt2">
+        </div>
+    </div>
+
+    <p></p>
+
+    <div>
+        <button class="btn_result" id="btn_result" onclick="orderCheck()">주 문 확 인</button>
+        <p style="font-weight: bold" id="totalTag"></p>
+    </div>
+    
+    <p></p>
+
+
+    <div id="result_window">
+        <textarea name="주문확인표" id="order" cols="86" rows="20" placeholder="주문을 확인해주세요"></textarea>
+    </div>
+</body>
+<script>
+
+  function orderCheck () {
+      /**
+       * 1. 주류와 음식이 둘다 0이면은 로직을 실행할 필요 없겠네? 그럼 수량을 올려달라고 얼롯트를 띄우자  - 주류와 음식의 수량을 가지고 와야겠네?
+       * 2. 둘중에 하나라도 0이 아니거나 , 둘다 0이 아니면 실행을 시키자
+       * */
+
+      let alcohol, alcoholFee, alcoholCnt, food, foodFee, foodCnt;
+
+      //id 로 주류 수량의 태그에 접근 해서 .value 로 수량 가져오기
+      alcoholCnt = document.getElementById('cnt1').value;
+
+      //id 로 음식 수량의 태그에 접근 해서 .value 로 수량 가져오기
+      foodCnt = document.getElementById('cnt2').value;
+
+      //주류 수량과 음식수량이 둘다 0 이면 수량을 올려달라고 요청하고 이 함수를 빠져나간다
+      if (alcoholCnt == 0 && foodCnt == 0) {
+        return alert('수량을 올려주세요')
+      }
+
+
+      // 자 이제, 주류와 음식 중에 무조건 하나 이상 값이 있기 때문에 주문내역에 접근 해야함
+      // id 로 주문 내역의 태그를 가져 온다.
+      let orderHistory = document.getElementById('order');
+
+      // totalPrice 금액을 0원 으로 우선 설정 해둔다 (총금액)
+      let totalPrice = 0;
+
+      //주문내역에 텍스트를 항상 초기화 시킨다. 그이유는 누를 때 마다 새로 텍스트를 추가 해주기 위해서
+      orderHistory.innerHTML = '';
+
+
+      /**
+       * 주류의 수량이 0 보다 크면 실행
+       *
+       */
+      if (alcoholCnt > 0) {
+          let alcoholPrice;
+          //id 로 주류 셀렉트 박스에 접근
+          alcohol = document.getElementById('alcohol');
+                        //셀렉트 박스는 복수개의 옵션을 가질수 있다.
+                        //그걸 통칭 하는게 옵션스이다
+                        //옵션스 에서 내가 선택한 n번째 옵션의 밸류 값을 가져온다.
+          //이게 주류에 요금이다
+          alcoholFee = alcohol.options[alcohol.selectedIndex].value;
+
+          //주류의 총 값을 계산 하기위해 주류 단가 X(곱하기) 수량
+          alcoholPrice = (Number(alcoholFee) * Number(alcoholCnt))
+
+          //주문내역에 표시 해주기 위해 접근한 변수.innerHTML 로 정보를 뿌려준다.
+          orderHistory.innerHTML += `메뉴 : ${alcohol.options[alcohol.selectedIndex].text}, 가격 : ${alcoholPrice.toLocaleString()} `
+
+          //토탈에 가격 세팅
+          totalPrice += alcoholPrice
+      }
+
+      if (foodCnt > 0) {
+          let foodPrice;
+          //푸드에 접근
+          food = document.getElementById('food');
+          //셀렉트 박스에 옵션스 에서 내가 선택한 옵션의 밸류 값을 가져온다.
+          foodFee = food.options[food.selectedIndex].value;
+
+          foodPrice = (Number(foodFee) * Number(foodCnt))
+          orderHistory.innerHTML += ` 메뉴 : ${food.options[food.selectedIndex].text}, 가격 : ${foodPrice.toLocaleString()} `
+          totalPrice += foodPrice
+      }
+
+      let totalTag = document.getElementById('totalTag')
+
+      totalTag.innerHTML = `총 금액 : ${totalPrice.toLocaleString()}`
+  }
+</script>
+<style>
+    /*css주석 기입  */
+    div {
+        display: inline-block;
+        border: 1px;
+        border-style: none;
+    }
+    h1{
+        margin-left: 35px;
+        padding-top: 15px;
+    }
+    label{
+        font-weight: bold;
+        font-size: 14pt;
+    }
+    div .btn_result{
+        font-weight: bold;
+        width: 150px;
+        height: 50px;
+        font-size: 16pt;
+    }
+    ::placeholder{
+        font-size: 25pt;
+    }
+    body{
+        margin-bottom: 50px;
+    }
+</style>
+</html>

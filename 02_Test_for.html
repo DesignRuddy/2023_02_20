@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_Test_for.html</title>
+    
+    <script>
+    //자바스크립트 -----------------------------------
+        var hap=0; su=0; 
+                     //1 2 3 4 5 6 7 8 9 10 hap=55 
+
+    function mynumber(){
+   
+        
+        for(count=0; count<10; count=count+1){
+
+            su = su+1;
+            // if(su==5){break;}
+            if(su==6){continue;}
+
+            document.write(su,' ');
+            hap = hap + su;
+          
+        }
+        document.write('합계='+ hap);
+    }
+    </script>
+  
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h2> Test.html</h2>
+
+    <img src="./Images/main_4.jpg" alt="" width="500" height="100"> <br>
+    <button onclick="mynumber()">for 반복문</button>
+    <div id="Display"></div>
+</body>
+<!-- 주석 '끝' 입니다.    ------  -->
+<style>
+    *{ font-size: 18pt;  }
+    /*css주석 기입  */
+    
+</style>
+</html>

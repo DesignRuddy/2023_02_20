@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 17_Test_avg.html </title>
+    
+    <style>
+
+    </style>
+    
+    <script>
+    //자바스크립트 -----------------------------------
+    function mypass(){
+        let kor=0, eng=0, tot=0, avg=0, msg='', grade='F', result='';
+        //let 표준값들_숫자는 0부터 문자는 ''에 들어가라 ?인거같아요.
+
+        kor = 80 ;  eng = 100;
+        tot = kor + eng;
+        avg = tot/2;
+        //변수를 지정해주었어요.
+
+        //if~else  elseif~ else 100~90 A / 80~89~ B / 70~79 C / 60~69 D/ 0~59 F
+        //if~else  elseif~ else(조건){ case조건 : 처리; break; default:처리 ; break;}
+
+        // if (avg>=90){grade='귀하의 학점은 A 입니다.'}
+        // else if (avg>=80){grade='귀하의 학점은 B 입니다.'}
+        // else if (avg>=70){grade='귀하의 학점은 C 입니다.'}
+        // else if (avg>=60){grade='귀하의 학점은 D 입니다.'}
+        // else{grade='귀하의 학점은 F 입니다.'}
+        
+        switch(avg){ //89.5  82.3  86.7 80
+            case 10:grade='A'; break ;
+            case 9:grade='A'; break ;
+            case 8:grade='B'; break ;
+            case 7:grade='C'; break ;
+            case 6:grade='D'; break ;
+            default:grade='F'; break ;
+            
+            
+        //다중 if문
+        if(avg>=70) { msg='합격';}
+        else if(avg<=70){ msg='재시험';}
+  
+
+        // let info = '';
+        // info = (avg>=70)?'pass':'failed'; //3항 삼항연산
+        // info= (avg>=70)? 5:-1;
+
+          
+            result = '<h2>귀하의 점수는='+ tot + '으로 ' + avg+ '결과='+ ; 
+            result+=''+info+ '학점='+grade;
+        //document.write(result);
+        document.getElementById('Showup').innerHTML=result;
+    }
+        }//switch end
+
+</script>
+  
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h2> 17_Test_avg.html </h2>
+
+    <div id="Showup">
+        <img src="./img/Black_Desert.jpg" alt="" width="300" height="180">
+    </div>
+
+    <button onclick="mypass()">점수확인</button>
+  
+</body>
+</html>

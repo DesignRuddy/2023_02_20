@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_Test_while.html</title>
+    
+    <script>
+    //자바스크립트 -----------------------------------
+    function mygugudan(){
+        var dan=0, cnt=0;
+        dan=7;
+        
+        document.write(dan,'구구단출력 while반복문예제 <p>')
+
+        while(cnt<9){
+            cnt=cnt+1; //cnt는 0임,cnt는 0+1임 그럼 결과론적으론 cnt는 1임 
+            document.write(dan,'*',cnt,'=',(dan*cnt),'<br>')//적다 뭘? 괄호안의(단, 텍스트 ,씨엔티, 텍스트 (괄호안의 괄호는 함수로 인식 값이나옴) )
+        }
+    }
+    </script>
+  
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h2> 05_Test_while.html </h2>
+    <button onclick="mygugudan()">while 구구단 출력 </button>
+</body>
+<!-- 주석 '끝' 입니다.    ------  -->
+<style>
+    *{
+        font-size: 18pt;
+    }
+    /*css주석 기입  */
+</style>
+</html>

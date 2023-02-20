@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07testgugudan.html</title>
+
+<style>
+    *{font-size: 20pt;}
+</style>
+
+<script>
+    function mygugudan(){ 
+        var dan=0,message='' ;
+
+        dan = document.getElementById("gugu").value;
+        //dan=prompt('구구단입력하세요', '21');
+        for(var cnt=1; cnt<10; cnt=cnt+1){
+            message = message +  dan+'*'+cnt+'='+(dan*cnt)+'<br>';
+        }
+        document.getElementById("display").innerHTML = message;
+    }//end
+</script>
+    </head>
+    <body>
+        <h2> 07testgugudan.html </h2>
+        <form>
+            입력 : <input type="text" id="gugu">
+            <input  type="button" onclick="mygugudan()"  value="구구단"> 
+        </form> <br>
+    
+        <img src="./images/main_4.jpg" width="500" height="100">
+        <div id="display">
+            
+        </div>
+    </body>
+    </html>

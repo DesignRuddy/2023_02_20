@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test.html</title>
+
+</head>
+<!-- 주석 '시작' 입니다.    ------  -->
+<body>
+    <h1>[투다리 메뉴표]</h1>
+    <form name="myform"></form>
+    <p>
+        <b>음료 와 & 피자 </b>
+        <div id="preview_L" class="relative">
+            <div id="preview_R" class="absolute"></div>
+        </div>
+    </p>
+    <div class="container">
+        <div class="side_menu">
+            <label>술종류</label>
+                <p></p>
+                <select name="select_side" id="alcohol" onclick="img_alcohol(value)">
+                    <option value="3000">소주</option>
+                    <option value="5000">맥주</option>
+                    <option value="2000">콜라</option>
+                </select>
+          
+        </div>
+
+        <div id="alcoholCnt">
+            <label>수량
+                <input type="number" name="quantity" id="cnt1">
+            </label>
+        </div>
+        
+        <div class="main_menu">
+            <label>안주종류 </label>
+                <p></p>
+                <select name="select_menu" id="food" onclick="img_food(value)">
+                    <option value="8000">제육볶음</option>
+                    <option value="10000">두부김치</option>
+                    <option value="7000">골뱅이무침</option>
+                    <option value="6000">김치파전</option>
+                </select>
+        </div>
+
+        <div id="foodCnt">
+            <label>수량 </label>
+                <input type="number" name="quantity" id="cnt2">
+        </div>
+    </div>
+
+    <p></p>
+
+    <div>
+        <button class="btn_result" id="btn_result" onclick="orderCheck()">주 문 확 인</button>
+        <p style="font-weight: bold" id="totalTag"></p>
+    </div>
+    
+    <p></p>
+
+
+    <div id="result_window">
+        <textarea name="주문확인표" id="order" cols="86" rows="20" placeholder="주문을 확인해주세요"></textarea>
+    </div>
+</body>
+<script>
+    function img_food (name) {
+        var filename= "url('images/" + name + ".jpg')" ;
+        preview_R.style.backgroundImage = filename;
+        
+    }
+    function img_alcohol (name) {
+        var filename= "url('images/" + name + ".jpg')" ;
+        preview_L.style.backgroundImage = filename;
+    }
+
+    function orderCheck () {
+    
+
+      let alcohol, alcoholFee, alcoholCnt, food, foodFee, foodCnt;
+
+      alcoholCnt = document.getElementById('cnt1').value;
+
+      foodCnt = document.getElementById('cnt2').value;
+
+      if (alcoholCnt == 0 && foodCnt == 0) {
+        return alert('수량을 올려주세요')
+      }
+
+
+   
+      let orderHistory = document.getElementById('order');
+
+    
+      let totalPrice = 0;
+
+
+      orderHistory.innerHTML = '';
+
+
+  
+      if (alcoholCnt > 0) {
+          let alcoholPrice;
+        
+          alcohol = document.getElementById('alcohol');
+                     
+          alcoholFee = alcohol.options[alcohol.selectedIndex].value;
+
+          alcoholPrice = (Number(alcoholFee) * Number(alcoholCnt))
+
+          orderHistory.innerHTML += `메뉴 : ${alcohol.options[alcohol.selectedIndex].text}, 가격 : ${alcoholPrice.toLocaleString()} `
+
+
+          totalPrice += alcoholPrice
+      }
+
+      if (foodCnt > 0) {
+          let foodPrice;
+     
+          food = document.getElementById('food');
+       
+          foodFee = food.options[food.selectedIndex].value;
+
+          foodPrice = (Number(foodFee) * Number(foodCnt))
+          orderHistory.innerHTML += ` 메뉴 : ${food.options[food.selectedIndex].text}, 가격 : ${foodPrice.toLocaleString()} `
+          totalPrice += foodPrice
+      }
+      
+
+      let totalTag = document.getElementById('totalTag')
+
+      totalTag.innerHTML = `총 금액 : ${totalPrice.toLocaleString()}`
+  }
+</script>
+<style>
+    /*css주석 기입  */
+    div {
+        display: inline-block;
+        border: 1px;
+        border-style: none;
+    }
+    h1{
+        margin-left: 35px;
+        padding-top: 15px;
+    }
+    label{
+        font-weight: bold;
+        font-size: 14pt;
+    }
+    div .btn_result{
+        font-weight: bold;
+        width: 150px;
+        height: 50px;
+        font-size: 16pt;
+    }
+    ::placeholder{
+        font-size: 25pt;
+    }
+    body{
+        margin-bottom: 50px;
+    }
+    .relative {
+		position: relative;
+		width: 400px;
+		height: 180px;
+		background-image: url('images/bgpizza.jpg'); 
+		background-position: left;
+	}
+
+	.absolute {
+		position: absolute;
+		right: 0;
+		width: 213px;
+		height: 180px;
+		background-image: url('images/bgpizza.jpg');
+		background-position: right;
+	}
+</style>
+</html>

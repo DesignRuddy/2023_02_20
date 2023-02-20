@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 13_Test_gugudan.html </title>
+</head>
+<style>
+    *{ font-size: 16pt;} </style>
+
+<script>
+    function mydan(data){
+        var i=0;
+            document.write(' 13_Test_gugudan.html <p>')
+        for(i=1; i<10; i++){
+            document.write(data,'*',i,'=',(i*data),'<br>');
+        }
+    }// Fnc end
+</script>
+<body>
+    <h2>13_Test_gugudan.html </h2>
+    <button onclick="mydan(7)"> 함수호출</button>
+</body>
+</html>

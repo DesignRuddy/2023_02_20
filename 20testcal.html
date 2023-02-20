@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+<style>
+    .relative {
+		position: relative;
+		width: 427px;
+		height: 180px;
+		background-image: url('images/bgpizza.jpg'); 
+		background-position: left;
+	}
+
+	.absolute {
+		position: absolute;
+		right: 0;
+		width: 213px;
+		height: 180px;
+		background-image: url('images/bgpizza.jpg');
+		background-position: right;
+	}
+</style>
+
+<script>
+	function changePizzaL(name) {
+		var filename = "url('images/" + name + ".jpg')";  
+		preview_l.style.backgroundImage = filename; //성공
+	}
+	
+	function changePizzaR(name) {
+		var filename = "url('images/" + name + ".jpg')";
+		preview_r.style.backgroundImage = filename; //성공
+	}
+
+
+
+    function mycal(){
+       var data='',  info='', msg='' ;
+       var price1=1, Gdrink=0, price2=1, Ganju=0, Gtotal=0;
+    }//end
+</script>
+</head>
+
+<p> <b> 미스터음료 & 미스터안주피자</b>
+<div id="preview_l" class="relative">
+	<div id="preview_r" class="absolute"> </div>
+</div>
+
+<body>
+    <h1> <font color="green"> 🍺슬기로운 음주생활🍺 </font></h1>
+    <form name="myform">
+        <table border="0">
+            <tr> 
+				<td width=80><b>술종류<b></td>
+				<td width=50><b>갯수 </b></td>
+				<td width=80><b>안주종류</b></td>
+				<td width=50><b>갯수<b></td>
+			</tr>
+			<tr>
+			<td width = 80>
+				<select name="drink" onclick="changePizzaL(value)">
+					<option value=""> ---음료를 선택하세요--- </option>
+                    <option value="소주"> 소주(3000원)</option>
+                    <option value="맥주"> 맥주(2000원)</option>
+                    <option value="콜라"> 콜라(5000원)</option>
+                </select>
+			</td>
+			<td width = 50>
+				<input type="text" name="count1">
+			</td>
+            <td width = 80>
+                <select name="anju" onclick="changePizzaR(value)">
+					<option value=""> ---안주를 선택하세요--- </option>
+                   <option value="제육볶음"> 제육볶음(8000원)</option>
+                   <option value="두부김치"> 두부김치(10000원)</option>
+                   <option value="골뱅무침"> 골뱅무침(7000원)</option>
+                   <option value="김치파전"> 김치파전(5000원)</option>
+                </select>
+               </td>
+               <td width=50>
+               <input type="text" name="count2" >
+               </td></tr>
+        </table>
+        <p></p>
+        <input type="button"  value="슬기로운 주문하기"
+			  onClick="mycal( )"  style="font-size:20pt;"> <p>
+
+		 <textarea name="result" rows="10"  cols="70" 
+			style="font-size:12pt; background-color:#abcdef">주문내역표시
+		</textarea>
+    </form>
+
+</body>
+</html>
